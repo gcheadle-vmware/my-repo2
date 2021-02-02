@@ -10,7 +10,7 @@ jobs:
     - uses: k14s/setup-k14s-action@v1
       with:
         only: vendir
-        vendir: ${{ github.event.release.tag_name }}
+        vendir: "${{ github.event.release.tag_name }}"
       - run: |
           vendir version
           version=`vendir version`
