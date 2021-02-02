@@ -16,11 +16,11 @@ jobs:
           version=`vendir version`
           tag="${{ github.event.release.tag_name }}"
           tool_version="$(echo $version | sed 's/^.*[^0-9]\([0-9]*\.[0-9]*\.[0-9]*\).*$/\1/')"
-          if [[ "v${tool_version}" == "${tag}" ]];
+          if [[ "v${tool_version}" == "${INPUT_VENDIR}" ]];
           then
             echo "Version match with latest"
             exit 0
           else
-            echo "Versions do not match v$tool_version != $tag"
+            echo "Versions do not match v$tool_version != $INPUT_VENDIR"
             exit 1
           fi
